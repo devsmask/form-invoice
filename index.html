@@ -1,239 +1,126 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Invoice Input Form</title>
+  <title>Invoice Form</title>
   <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css">
   <style>
-    html, body {
-      background-color: #f4f6f9;
-      font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-    }
-
-    .card {
-      border-radius: 0.5rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
+    body { background-color: #f4f6f9; }
+    .container { max-width: 800px; margin: 2rem auto; padding: 1rem; }
+    .card { border-radius: 0.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
     @media screen and (max-width: 576px) {
-      .container {
-        padding: 1rem;
-      }
-
-      .card {
-        border-radius: 0;
-        box-shadow: none;
-      }
-
-      button.btn {
-        width: 100%;
-        padding: 0.75rem;
-      }
-
-      h3.card-title {
-        font-size: 1.2rem;
-        text-align: center;
-      }
+      .container { padding: 1rem; }
+      .card { border-radius: 0; box-shadow: none; }
+      button.btn { width: 100%; padding: 0.75rem; }
+      h3.card-title { font-size: 1.2rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Invoice Input Form</h3>
-      </div>
-      <form id="invoiceForm">
-        <div class="card-body">
-          <div class="form-group">
-            <label for="PaymentTerm">Payment Term</label>
-            <input type="text" class="form-control" id="PaymentTerm" name="PaymentTerm" value="Cash / Card" readonly>
-          </div>
-
-          <div class="form-group">
-            <label for="DueOn">Due On</label>
-            <input type="date" class="form-control" id="DueOn" name="DueOn" required>
-          </div>
-
-          <div class="form-group">
-            <label for="Currency">Currency</label>
-            <input type="text" class="form-control" id="Currency" name="Currency" value="Rupiah / Dollar" readonly>
-          </div>
-
-          <div class="form-group">
-            <label for="CustomerName">Customer Name</label>
-            <input type="text" class="form-control" id="CustomerName" name="CustomerName" required>
-          </div>
-
-          <div class="form-group">
-            <label for="Address">Address</label>
-            <input type="text" class="form-control" id="Address" name="Address" required>
-          </div>
-
-          <div class="form-group">
-            <label for="TotalPerson">Total Person</label>
-            <input type="number" class="form-control" id="TotalPerson" name="TotalPerson" required>
-          </div>
-
-          <div class="form-group">
-            <label for="Telp">Telp</label>
-            <input type="text" class="form-control" id="Telp" name="Telp" required>
-          </div>
-
-          <div class="form-group">
-            <label for="CompanyName">Company Name</label>
-            <input type="text" class="form-control" id="CompanyName" name="CompanyName">
-          </div>
-
-          <div class="form-group">
-            <label for="BoatName">Boat Name</label>
-            <select name="BoatName" class="form-control" id="BoatName" required>
-              <option value="">-- Pilih Boat --</option>
-              <option>MORGAN</option>
-              <option>YCB SEAVIEW</option>
-              <option>ACCURA 55</option>
-              <option>ACCURA 49</option>
-              <option>ACCURA 42</option>
-              <option>ACCURA 39</option>
-              <option>BLUE CAT</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="Periode">Periode</label>
-            <input type="date" class="form-control" id="Periode" name="Periode" required>
-          </div>
-
-          <div class="form-group">
-            <label for="Packages">Packages</label>
-            <select name="Packages" class="form-control" id="Packages" required>
-              <option value="">-- Pilih Paket --</option>
-              <option>Full day trip 8 hours to Gilli/ Lombok Island</option>
-              <option>Full day trip 8 hours to Penida/ Lembongan Island</option>
-              <option>Half day trip 4 hours Nusa Dua Area</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="Activities">Activities</label>
-            <input type="text" class="form-control" id="Activities" name="Activities" value="Snorkeling, Fun Fishing" readonly>
-          </div>
-
-          <div class="form-group">
-            <label for="Inclusions">Inclusions</label>
-            <textarea name="Inclusions" class="form-control" id="Inclusions" rows="2" readonly>Transfer Hotel, Soft Drink, Mineral Waters, Fruits and Snacks, Lunch</textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="Noted">Noted</label>
-            <textarea name="Noted" class="form-control" id="Noted" rows="2"></textarea>
-          </div>
-
-          <div class="form-group">
-            <label for="Total">Total</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">IDR</span>
-              </div>
-              <input type="text" class="form-control" id="Total" name="Total" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="Deposit">Deposit</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">IDR</span>
-              </div>
-              <input type="text" class="form-control" id="Deposit" name="Deposit" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="Balance">Balance</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text">IDR</span>
-              </div>
-              <input type="text" class="form-control" id="Balance" name="Balance" readonly required>
-            </div>
-          </div>
-        </div>
-        <div class="card-footer text-right">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </form>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Invoice Input Form</h3>
     </div>
+    <form id="invoiceForm">
+      <div class="card-body">
+        <div class="form-group">
+          <label for="CustomerName">Customer Name</label>
+          <input type="text" class="form-control" id="CustomerName" name="CustomerName" required>
+        </div>
+        <div class="form-group">
+          <label for="DueOn">Due On</label>
+          <input type="date" class="form-control" id="DueOn" name="DueOn" required>
+        </div>
+        <div class="form-group">
+          <label for="Periode">Periode</label>
+          <input type="date" class="form-control" id="Periode" name="Periode" required>
+        </div>
+        <div class="form-group">
+          <label for="TotalPerson">Total Person</label>
+          <input type="number" class="form-control" id="TotalPerson" name="TotalPerson" required>
+        </div>
+        <div class="form-group">
+          <label for="Telp">Telp</label>
+          <input type="text" class="form-control" id="Telp" name="Telp" required>
+        </div>
+        <div class="form-group">
+          <label for="Total">Total</label>
+          <input type="text" class="form-control" id="Total" name="Total" required>
+        </div>
+        <div class="form-group">
+          <label for="Deposit">Deposit</label>
+          <input type="text" class="form-control" id="Deposit" name="Deposit" required>
+        </div>
+        <div class="form-group">
+          <label for="Balance">Balance</label>
+          <input type="text" class="form-control" id="Balance" name="Balance" readonly required>
+        </div>
+      </div>
+      <div class="card-footer text-right">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
   </div>
+</div>
 
-  <script>
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyO08BuGFVsf7-xr613rF6jPublCEJT3UsJ-I_t9Bk8Bj7MOWNOOnrcCr_EEqxIMR1ijA/exec'; // GANTI DENGAN LINK WEB APP ANDA
+<script>
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyO08BuGFVsf7-xr613rF6jPublCEJT3UsJ-I_t9Bk8Bj7MOWNOOnrcCr_EEqxIMR1ijA/exec';
 
-    const formatToIDR = num => 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    const parseIDR = val => parseFloat(val.replace(/[^\d]/g, '')) || 0;
+  const formatToIDR = num => 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const parseIDR = val => parseFloat(val.replace(/[^\d]/g, '')) || 0;
 
-    function updateBalance() {
-      const total = parseIDR(document.getElementById("Total").value);
-      const deposit = parseIDR(document.getElementById("Deposit").value);
-      const balance = total - deposit;
-      document.getElementById("Balance").value = formatToIDR(balance);
+  function updateBalance() {
+    const total = parseIDR(document.getElementById("Total").value);
+    const deposit = parseIDR(document.getElementById("Deposit").value);
+    const balance = total - deposit;
+    document.getElementById("Balance").value = formatToIDR(balance);
+  }
+
+  ["Total", "Deposit"].forEach(id => {
+    document.getElementById(id).addEventListener("input", function () {
+      const raw = parseIDR(this.value);
+      this.value = formatToIDR(raw);
+      updateBalance();
+    });
+  });
+
+  document.getElementById("invoiceForm").onsubmit = function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = Object.fromEntries(new FormData(form).entries());
+
+    const bulanIndo = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+    const formatDate = input => {
+      const d = new Date(input);
+      return `${bulanIndo[d.getMonth()]}, ${String(d.getDate()).padStart(2, '0')} th ${d.getFullYear()}`;
+    };
+
+    if (data.DueOn) data.DueOn = formatDate(data.DueOn);
+    if (data.Periode) data.Periode = formatDate(data.Periode);
+    if (data.TotalPerson && !data.TotalPerson.includes("Pax")) {
+      data.TotalPerson = `${data.TotalPerson} Pax`;
     }
 
-    ["Total", "Deposit"].forEach(id => {
-      document.getElementById(id).addEventListener("input", function () {
-        const raw = parseIDR(this.value);
-        this.value = formatToIDR(raw);
-        updateBalance();
-      });
+    data.Total = parseIDR(data.Total);
+    data.Deposit = parseIDR(data.Deposit);
+    data.Balance = parseIDR(data.Balance);
+
+    fetch(WEB_APP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
     });
 
-    document.getElementById("invoiceForm").onsubmit = async function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = Object.fromEntries(new FormData(form).entries());
-
-      const bulanIndo = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-      const formatDate = (input) => {
-        const d = new Date(input);
-        return `${bulanIndo[d.getMonth()]}, ${String(d.getDate()).padStart(2, '0')} th ${d.getFullYear()}`;
-      };
-
-      if (data.DueOn) data.DueOn = formatDate(data.DueOn);
-      if (data.Periode) data.Periode = formatDate(data.Periode);
-      if (data.TotalPerson && !data.TotalPerson.includes("Pax")) {
-        data.TotalPerson = `${data.TotalPerson} Pax`;
-      }
-
-      data.Total = parseIDR(data.Total);
-      data.Deposit = parseIDR(data.Deposit);
-      data.Balance = parseIDR(data.Balance);
-
-      try {
-        const response = await fetch(WEB_APP_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        });
-
-        const result = await response.json();
-        alert(result.message);
-        if (result.url) window.open(result.url, '_blank');
-        form.reset();
-      } catch (err) {
-        alert("❌ Gagal mengirim data. Periksa koneksi atau URL Web App Anda.");
-        console.error(err);
-      }
-    };
-  </script>
+    alert("✅ Data berhasil dikirim. Silakan cek spreadsheet Anda.");
+    form.reset();
+  };
+</script>
 </body>
 </html>
