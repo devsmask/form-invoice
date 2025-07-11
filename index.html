@@ -4,11 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Invoice Form</title>
+  <title>Invoice Input Form</title>
   <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
   <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css">
   <style>
-    body { background-color: #f4f6f9; }
+    body { background-color: #f4f6f9; margin: 0; font-family: sans-serif; }
     .container { max-width: 800px; margin: 2rem auto; padding: 1rem; }
     .card { border-radius: 0.5rem; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
     @media screen and (max-width: 576px) {
@@ -27,11 +27,38 @@
     </div>
     <form id="invoiceForm">
       <div class="card-body">
-        <div class="form-group"><label>Customer Name</label><input type="text" class="form-control" name="CustomerName" required></div>
+        <div class="form-group"><label>Payment Term</label><input type="text" class="form-control" name="PaymentTerm" value="Cash / Card" readonly></div>
         <div class="form-group"><label>Due On</label><input type="date" class="form-control" name="DueOn" required></div>
-        <div class="form-group"><label>Periode</label><input type="date" class="form-control" name="Periode" required></div>
+        <div class="form-group"><label>Currency</label><input type="text" class="form-control" name="Currency" value="Rupiah / Dollar" readonly></div>
+        <div class="form-group"><label>Customer Name</label><input type="text" class="form-control" name="CustomerName" required></div>
+        <div class="form-group"><label>Address</label><input type="text" class="form-control" name="Address" required></div>
         <div class="form-group"><label>Total Person</label><input type="number" class="form-control" name="TotalPerson" required></div>
         <div class="form-group"><label>Telp</label><input type="text" class="form-control" name="Telp" required></div>
+        <div class="form-group"><label>Company Name</label><input type="text" class="form-control" name="CompanyName"></div>
+        <div class="form-group"><label>Boat Name</label>
+          <select name="BoatName" class="form-control" required>
+            <option value="">-- Pilih Boat --</option>
+            <option>MORGAN</option>
+            <option>YCB SEAVIEW</option>
+            <option>ACCURA 55</option>
+            <option>ACCURA 49</option>
+            <option>ACCURA 42</option>
+            <option>ACCURA 39</option>
+            <option>BLUE CAT</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Periode</label><input type="date" class="form-control" name="Periode" required></div>
+        <div class="form-group"><label>Packages</label>
+          <select name="Packages" class="form-control" required>
+            <option value="">-- Pilih Paket --</option>
+            <option>Full day trip 8 hours to Gilli/ Lombok Island</option>
+            <option>Full day trip 8 hours to Penida/ Lembongan Island</option>
+            <option>Half day trip 4 hours Nusa Dua Area</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Activities</label><input type="text" class="form-control" name="Activities" value="Snorkeling, Fun Fishing" readonly></div>
+        <div class="form-group"><label>Inclusions</label><textarea name="Inclusions" class="form-control" rows="2" readonly>Transfer Hotel, Soft Drink, Mineral Waters, Fruits and Snacks, Lunch</textarea></div>
+        <div class="form-group"><label>Noted</label><textarea name="Noted" class="form-control" rows="2"></textarea></div>
         <div class="form-group"><label>Total</label><input type="text" class="form-control" id="Total" name="Total" required></div>
         <div class="form-group"><label>Deposit</label><input type="text" class="form-control" id="Deposit" name="Deposit" required></div>
         <div class="form-group"><label>Balance</label><input type="text" class="form-control" id="Balance" name="Balance" readonly required></div>
