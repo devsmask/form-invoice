@@ -110,16 +110,14 @@
     data.Balance = parseIDR(data.Balance);
 
     fetch(WEB_APP_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
+  method: 'POST',
+  mode: 'no-cors',
+  // HAPUS headers
+  body: JSON.stringify(data) // kirim langsung sebagai text
+});
+alert("✅ Data berhasil dikirim.");
+form.reset();
 
-    alert("✅ Data berhasil dikirim. Silakan cek spreadsheet Anda.");
-    form.reset();
   };
 </script>
 </body>
